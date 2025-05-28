@@ -8,6 +8,11 @@
 
 📖 **Optional Reading**: [Douglas Crockford: The JSON Saga](https://www.youtube.com/watch?v=-C-JoyNuQJs)
 
+## Serialization
+
+Programming often consists of creating and using objects. These objects can be complicated, with a variety of primitive data types, or even other objects. It can be difficult to use objects with other applications, such as server-client communication, or storing objects in a database. Serializing an object is the act of turning that object into an array of bytes. This makes the object easy to store or send over a network. When we recieve or retrieve the object, we can then deserialize the bytes back into an object.
+
+There are many different ways to serialize objects. You will serialize your Java objects into JSON, which is an array of bytes in the sense that it is a string of characters. 
 
 ## JSON
 
@@ -61,7 +66,7 @@ public class GsonExample {
 
         var serializer = new Gson();
 
-        var json = serializer.toJson(obj);
+        String json = serializer.toJson(obj);
         System.out.println("JSON: " + json);
 
         var objFromJson = serializer.fromJson(json, Map.class);
@@ -70,13 +75,61 @@ public class GsonExample {
 }
 ```
 
-Running this code will output the following.
+Running this code will output the following:
 
 ```sh
 > java JsonExample
 JSON: {"year":2264,"pets":["cat","dog","fish"],"name":"perry"}
 Object: {year=2264.0, pets=[cat, dog, fish], name=perry}
 ```
+
+### Using Your Own Objects
+
+You can also use Java Objects that you create for serialization and deserialization. For example, consider this CD record.
+
+```java
+public record CD (String title, String artist, float price, int year) {}
+```
+
+Using the same code from before, Gson can serialize and deserialize this object:
+
+```java
+public Main(){
+    public static void main(String[] args) {
+        var obj = new CD("Greatest Hits", "Dolly Parton", 9.90f, 1982);
+
+        var serializer = new Gson();
+
+        String json = serializer.toJson(obj);
+        System.out.println("JSON: " + json);
+
+        var objFromJson = serializer.fromJson(json, CD.class);
+        System.out.println("Object: " + objFromJson);
+    }
+}
+```
+
+Running this will output the following:
+
+```sh
+> java JsonExample2
+JSON: {"title":"Greatest Hits","artist":"Dolly Parton","price":9.9,"year":1982}
+Object: CD[title=Greatest Hits, artist=Dolly Parton, price=9.9, year=1982]
+```
+### Case Sensitivety
+
+Gson is simple to use, and serializes well. However, it isn't able to determine any meaning behind variable names. For example, consider the following json string:
+
+```json
+{"Title":"Greatest Hits","artist":"Dolly Parton","price":9.9,"year":1982}
+```
+
+You might notice that the T in `Title` is capitalized. If you tried to deserialize the following string into the CD record from above, you would get the following result:
+
+```ssh
+Object: CD[title=null, artist=Dolly Parton, price=9.9, year=1982]
+```
+Because `Title` didn't match any of the variables of the object, it was ignored. Furthermore, because there was no value for `title`, it was not initialized, and therefore printed as null.
 
 ### Creating Gson TypeAdapters
 
@@ -158,6 +211,7 @@ There are three main ways to make the Gson library available to your project:
 
 ## Things to Understand
 
+- What Serialization means and why it is important
 - How to read / understand JSON documents
 - How to generate an JSON string from the instance variables of a Java object
 - How to parse an JSON object and represent the data with a Java object
