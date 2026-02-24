@@ -186,7 +186,7 @@ Before coming to passoff with a TA, check to make sure your code functions prope
 | GitHub History | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                              | Prerequisite |
 | Functionality  | Program supports all required functionality                                                                                                                                                     |          100 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                             |           30 |
-| Unit Tests     | All test cases pass<br/>Each public method on the Server Facade class has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
+| Unit Tests     | All test cases pass<br/>Line coverage on `facade` package is at least 80%<br/>Every test case includes an Assert statement of some type |           25 |
 |                | **Total**                                                                                                                                                                                       |      **155** |
 
 ## Videos
