@@ -42,7 +42,7 @@ This should result in the following structure:
 
 Once you have completed **all** of the previous steps, you should be able to launch your server and access a testing HTML page. This is a simple frontend that was made to help with basic testing of your server endpoints.
 
-Inside of `server/src/main/java/ServerMain.java` in the main method, replace the code that is there with the creation of the Server object. Then call the server's run method. The run method needs the port you will run your server on, which is typically 8080 for testing.
+Inside of `server/src/main/java/server/ServerMain.java` in the main method, replace the code that is there with the creation of the Server object. Then call the server's run method. The run method needs the port you will run your server on, which is typically 8080 for testing.
 
 ```java
 package server;
