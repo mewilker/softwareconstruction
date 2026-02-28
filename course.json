@@ -20,7 +20,9 @@
         {
           "title": "Instruction topics",
           "path": "instruction/modules.md",
-          "id": "5054878e-9c3c-4402-bb16-73614596a0b2"
+          "id": "5054878e-9c3c-4402-bb16-73614596a0b2",
+          "interactions": [],
+          "commit": "cef6a585f931f9aa450d7393b67cfb723c804d2e"
         },
         {
           "title": "Schedule: Dr. Rodham",
