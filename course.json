@@ -15,7 +15,9 @@
         {
           "title": "Syllabus",
           "path": "instruction/syllabus/syllabus.md",
-          "id": "afd15fd1-0747-4fed-bb39-2e3a561dc317"
+          "id": "afd15fd1-0747-4fed-bb39-2e3a561dc317",
+          "interactions": [],
+          "commit": "289056316c1198bd5924e1825432dc499eee4200"
         },
         {
           "title": "Instruction topics",
