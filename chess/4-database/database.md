@@ -78,10 +78,7 @@ The above code demonstrates the necessary concepts to implement secure password 
 
 ## Error Handling
 
-Now that your database is stored in MySQL, you must account for any errors trying to connect to that program. While your database is most likely kept on your own machine, it's possible that it could be kept on another. If the internet were to go down and the two programs are not able to establish a connection to each other, a `SQLException` would be thrown. 
-
-If this happens while an endpoint is trying to access the database, this should be considered an `Internal Server Error`, and an appropriate response must be handled.
-The status code must be set to `500` and the body of each of these responses must include a reasonable, relevant error message. You may recall this specification from [Phase 3](../3-web-api/web-api.md#endpoint-specifications).
+Now that your database is stored in MySQL, you must account for any errors trying to connect to that program. If any exception is thrown while an endpoint is trying to access the database, this should be considered an `Internal Server Error`, and an appropriate response must be handled. The status code must be set to `500` and the body of each of these responses must include a reasonable, relevant error message. You may recall this specification from [Phase 3](../3-web-api/web-api.md#endpoint-specifications).
 
 ## ChessGame Serialization/Deserialization
 
